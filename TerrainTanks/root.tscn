@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://8hosxf06aary"]
+[gd_scene load_steps=6 format=3 uid="uid://8hosxf06aary"]
 
 [ext_resource type="PackedScene" uid="uid://7ikqccu7y2p0" path="res://cromwell.tscn" id="1_dyv6y"]
 
@@ -7,6 +7,13 @@ size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ogjdv"]
 size = Vector3(50, 1, 50)
+
+[sub_resource type="PrismMesh" id="PrismMesh_m0i53"]
+left_to_right = 0.0
+size = Vector3(10, 2.5, 10)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_58xvq"]
+points = PackedVector3Array(5, 0, 5, -5, 0, -5, -5, 0, 5, 5, 0, -5, -5, 2.5, 5, -5, 2.5, -5)
 
 [node name="Root" type="Node"]
 
@@ -21,5 +28,19 @@ shape = SubResource("BoxShape3D_ogjdv")
 [node name="Cromwell" parent="." instance=ExtResource("1_dyv6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1028, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Cromwell"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 20, 0)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.610145, 0.458959, -0.645817, 0, 0.815128, 0.579281, 0.79229, 0.353446, -0.497346, -24.188, 23.1028, -21.1474)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.110394, 0, 0.993888, 0, 1, 0, -0.993888, 0, -0.110394, 0, 1.45514, 14.4828)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PrismMesh_m0i53")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
+shape = SubResource("ConvexPolygonShape3D_58xvq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.941771, -0.100265, 0.320958, 0.0798033, 0.860591, 0.503006, -0.326648, 0.49933, -0.802478, 15.4513, 22.1626, -7.30389)
+shadow_enabled = true

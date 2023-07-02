@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://7ikqccu7y2p0"]
+[gd_scene load_steps=38 format=3 uid="uid://7ikqccu7y2p0"]
 
 [ext_resource type="Script" path="res://VehicleMovement.gd" id="1_fm5ef"]
 [ext_resource type="Script" path="res://TurretRotation.gd" id="1_ubd7t"]
+[ext_resource type="Script" path="res://Wheel.gd" id="3_1gry0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18ore"]
 resource_name = "Green"
@@ -154,7 +155,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ocmp5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3idwn"]
-size = Vector3(8, 2, 3)
+size = Vector3(7.48114, 1.04464, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqhib"]
 resource_name = "Silver"
@@ -487,7 +488,6 @@ shadow_mesh = SubResource("ArrayMesh_ovtnc")
 script = ExtResource("1_fm5ef")
 
 [node name="Chassis" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("ArrayMesh_ie43a")
 skeleton = NodePath("")
 
@@ -508,10 +508,13 @@ mesh = SubResource("ArrayMesh_q36gf")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.183544, 0, 0)
 shape = SubResource("BoxShape3D_3idwn")
 
 [node name="Wheel L1" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.4757, -0.824444, -1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel L1" type="MeshInstance3D" parent="Wheel L1"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -520,6 +523,8 @@ skeleton = NodePath("")
 
 [node name="Wheel L2" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.24825, -0.824444, -1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel L2" type="MeshInstance3D" parent="Wheel L2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -528,6 +533,8 @@ skeleton = NodePath("")
 
 [node name="Wheel L3" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0207972, -0.824444, -1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel L3" type="MeshInstance3D" parent="Wheel L3"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -536,6 +543,8 @@ skeleton = NodePath("")
 
 [node name="Wheel L4" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.20665, -0.824444, -1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel L4" type="MeshInstance3D" parent="Wheel L4"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -544,6 +553,8 @@ skeleton = NodePath("")
 
 [node name="Wheel L5" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.4341, -0.824444, -1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel L5" type="MeshInstance3D" parent="Wheel L5"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -552,6 +563,8 @@ skeleton = NodePath("")
 
 [node name="Wheel R1" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.4757, -0.824444, 1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel R1" type="MeshInstance3D" parent="Wheel R1"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -560,6 +573,8 @@ skeleton = NodePath("")
 
 [node name="Wheel R2" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.24825, -0.824444, 1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel R2" type="MeshInstance3D" parent="Wheel R2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -568,6 +583,8 @@ skeleton = NodePath("")
 
 [node name="Wheel R3" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0207977, -0.824444, 1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel R3" type="MeshInstance3D" parent="Wheel R3"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -576,6 +593,8 @@ skeleton = NodePath("")
 
 [node name="Wheel R4" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.20665, -0.824444, 1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel R4" type="MeshInstance3D" parent="Wheel R4"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -584,6 +603,8 @@ skeleton = NodePath("")
 
 [node name="Wheel R5" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.4341, -0.824444, 1.20273)
+wheel_friction_slip = 1.0
+script = ExtResource("3_1gry0")
 
 [node name="Wheel R5" type="MeshInstance3D" parent="Wheel R5"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
