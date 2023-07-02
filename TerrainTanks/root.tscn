@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://8hosxf06aary"]
+
+[ext_resource type="PackedScene" uid="uid://7ikqccu7y2p0" path="res://cromwell.tscn" id="1_dyv6y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m4goe"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ogjdv"]
+size = Vector3(50, 1, 50)
+
+[node name="Root" type="Node"]
+
+[node name="Node3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_m4goe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
+shape = SubResource("BoxShape3D_ogjdv")
+
+[node name="Cromwell" parent="." instance=ExtResource("1_dyv6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1028, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Cromwell"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 20, 0)

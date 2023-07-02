@@ -1,0 +1,3 @@
+individual meshes with curve
+static 3 part mesh
+static 3 part mesh with meshdatatool deforming with a falloff
