@@ -111,15 +111,15 @@ func _physics_process(_delta) -> void:
 #		else:
 #			wheel.wheel_friction_slip = 10.5
 
-		# braking
-		if braking:
-			print("brake")
-			for index in range(5):
-				left_wheels[index].engine_force = 0
-				right_wheels[index].engine_force = 0
-				
-				left_wheels[index].brake = 5
-				right_wheels[index].brake = 5
+	# braking
+	if braking:
+		print("brake")
+		for index in range(5):
+			left_wheels[index].engine_force = 0
+			right_wheels[index].engine_force = 0
+			
+			left_wheels[index].brake = 5
+			right_wheels[index].brake = 5
 	# going stright
 	elif turning == 0 and straight != 0:
 		print("go")
@@ -130,6 +130,13 @@ func _physics_process(_delta) -> void:
 			
 			left_wheels[index].engine_force = move_value
 			right_wheels[index].engine_force = move_value
+			
+			if straight == 1 and index >= 2 or straight == -1 and index <= 2:
+				left_wheels[index].suspension_stiffness = 20
+				right_wheels[index].suspension_stiffness = 20
+			else:
+				left_wheels[index].suspension_stiffness = 5
+				right_wheels[index].suspension_stiffness = 5
 			
 			left_wheels[index].brake = 0
 			right_wheels[index].brake = 0
@@ -163,6 +170,13 @@ func _physics_process(_delta) -> void:
 				left_wheels[index].engine_force = move_value
 				right_wheels[index].engine_force = move_value
 				
+				if straight == 1 and index >= 2 or straight == -1 and index <= 2:
+					left_wheels[index].suspension_stiffness = 20
+					right_wheels[index].suspension_stiffness = 20
+				else:
+					left_wheels[index].suspension_stiffness = 5
+					right_wheels[index].suspension_stiffness = 5
+				
 				left_wheels[index].brake = 0
 				right_wheels[index].brake = 0
 		else:
@@ -172,6 +186,13 @@ func _physics_process(_delta) -> void:
 				
 				left_wheels[index].engine_force = move_value
 				right_wheels[index].engine_force = move_value
+				
+				if straight == 1 and index >= 2 or straight == -1 and index <= 2:
+					left_wheels[index].suspension_stiffness = 20
+					right_wheels[index].suspension_stiffness = 20
+				else:
+					left_wheels[index].suspension_stiffness = 5
+					right_wheels[index].suspension_stiffness = 5
 				
 				left_wheels[index].brake = 0
 				right_wheels[index].brake = 0

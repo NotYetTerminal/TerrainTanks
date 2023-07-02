@@ -155,7 +155,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ocmp5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3idwn"]
-size = Vector3(7.48114, 1.04464, 3)
+size = Vector3(7.481, 1.016, 1.948)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqhib"]
 resource_name = "Silver"
@@ -485,6 +485,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ovtnc")
 
 [node name="Cromwell" type="VehicleBody3D"]
+mass = 100.0
 script = ExtResource("1_fm5ef")
 
 [node name="Chassis" type="MeshInstance3D" parent="."]
@@ -513,7 +514,9 @@ shape = SubResource("BoxShape3D_3idwn")
 
 [node name="Wheel L1" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.4757, -0.824444, -1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel L1" type="MeshInstance3D" parent="Wheel L1"]
@@ -523,7 +526,9 @@ skeleton = NodePath("")
 
 [node name="Wheel L2" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.24825, -0.824444, -1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel L2" type="MeshInstance3D" parent="Wheel L2"]
@@ -533,7 +538,9 @@ skeleton = NodePath("")
 
 [node name="Wheel L3" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0207972, -0.824444, -1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel L3" type="MeshInstance3D" parent="Wheel L3"]
@@ -543,7 +550,9 @@ skeleton = NodePath("")
 
 [node name="Wheel L4" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.20665, -0.824444, -1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel L4" type="MeshInstance3D" parent="Wheel L4"]
@@ -553,7 +562,9 @@ skeleton = NodePath("")
 
 [node name="Wheel L5" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.4341, -0.824444, -1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel L5" type="MeshInstance3D" parent="Wheel L5"]
@@ -563,7 +574,9 @@ skeleton = NodePath("")
 
 [node name="Wheel R1" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.4757, -0.824444, 1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel R1" type="MeshInstance3D" parent="Wheel R1"]
@@ -573,7 +586,9 @@ skeleton = NodePath("")
 
 [node name="Wheel R2" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.24825, -0.824444, 1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel R2" type="MeshInstance3D" parent="Wheel R2"]
@@ -583,7 +598,9 @@ skeleton = NodePath("")
 
 [node name="Wheel R3" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0207977, -0.824444, 1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel R3" type="MeshInstance3D" parent="Wheel R3"]
@@ -593,7 +610,9 @@ skeleton = NodePath("")
 
 [node name="Wheel R4" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.20665, -0.824444, 1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel R4" type="MeshInstance3D" parent="Wheel R4"]
@@ -603,7 +622,9 @@ skeleton = NodePath("")
 
 [node name="Wheel R5" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.4341, -0.824444, 1.20273)
+wheel_radius = 0.6
 wheel_friction_slip = 1.0
+suspension_travel = 1.0
 script = ExtResource("3_1gry0")
 
 [node name="Wheel R5" type="MeshInstance3D" parent="Wheel R5"]
