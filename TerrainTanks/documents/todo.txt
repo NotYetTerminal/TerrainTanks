@@ -1,0 +1,68 @@
+camera:
+	fix camera to tank
+	make camera rotate with mouse
+	make turret and gun move to mouse
+	make sniping mode
+
+tracks:
+	make 3 snap tracks
+	deform mesh based on locations
+
+shooting:
+	make gun shoot bullets
+	make different ammo size, and type
+	ammo swaps
+	make different armoured targets
+	make angle shooting change armour ammount
+	make accuracy bloom
+	make snap shot
+
+tanking:
+	make modules
+	make crew
+	make module and crew damage
+	take collision damage
+	make crew manable for speeding up things
+	commander: spotting
+	gunner: sniping
+	loader: switching ammo
+	driver: increased controlability, and decreased terrain slowdown
+	radio: increase radio range
+	
+spotting:
+	make spotting circles, auto close, max, further
+	make different camoflauge levels and visually hide tanks
+	make bushes
+	make personal spotting
+	make light tank paintball spotting
+	make fog of war
+	make spotted mechanic warning
+
+map:
+	create map prefabs and building prefabs
+	create hideabble objects
+	make map generation
+	make different map base types
+	make enviornment ground textures
+	make enviornmental triggers, dam, collapsing bridge
+	make destructable buildings
+	make modifyable terrain
+	make win conditions
+
+tanks:
+	make 4 base tanks, scouter, utility, brawler, support
+	make passives
+	scouter uses paint balls
+	utility has multiple set up abilites
+	brawlers has towing carts
+	support can use carts, and has truck
+	make more tanks
+
+abilites:
+	make active abilites that each tank can equip one of
+	maybe these could be like the passive abilites
+	like choosing to take a landmine set or excavation set for utility
+	create carts and trucks
+
+make catch up mechanic:
+	give other tanks abilites of passives when losing too much

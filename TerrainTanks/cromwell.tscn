@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://7ikqccu7y2p0"]
+[gd_scene load_steps=39 format=3 uid="uid://7ikqccu7y2p0"]
 
 [ext_resource type="Script" path="res://VehicleMovement.gd" id="1_fm5ef"]
 [ext_resource type="Script" path="res://TurretRotation.gd" id="1_ubd7t"]
 [ext_resource type="Script" path="res://Wheel.gd" id="3_1gry0"]
+[ext_resource type="Script" path="res://GunMoving.gd" id="3_ajqcw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18ore"]
 resource_name = "Green"
@@ -502,6 +503,7 @@ script = ExtResource("1_ubd7t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15866, 0.256739, 0)
 mesh = SubResource("ArrayMesh_xj0on")
 skeleton = NodePath("")
+script = ExtResource("3_ajqcw")
 
 [node name="Driving Wheels" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30372, -0.325153, 1.20273)
@@ -515,6 +517,7 @@ shape = SubResource("BoxShape3D_3idwn")
 [node name="Wheel L1" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.4757, -0.824444, -1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")
@@ -527,6 +530,7 @@ skeleton = NodePath("")
 [node name="Wheel L2" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.24825, -0.824444, -1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")
@@ -539,6 +543,7 @@ skeleton = NodePath("")
 [node name="Wheel L3" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0207972, -0.824444, -1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")
@@ -551,6 +556,7 @@ skeleton = NodePath("")
 [node name="Wheel L4" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.20665, -0.824444, -1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")
@@ -563,6 +569,7 @@ skeleton = NodePath("")
 [node name="Wheel L5" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.4341, -0.824444, -1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")
@@ -575,6 +582,7 @@ skeleton = NodePath("")
 [node name="Wheel R1" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.4757, -0.824444, 1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")
@@ -587,6 +595,7 @@ skeleton = NodePath("")
 [node name="Wheel R2" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.24825, -0.824444, 1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")
@@ -599,6 +608,7 @@ skeleton = NodePath("")
 [node name="Wheel R3" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0207977, -0.824444, 1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")
@@ -611,6 +621,7 @@ skeleton = NodePath("")
 [node name="Wheel R4" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.20665, -0.824444, 1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")
@@ -623,6 +634,7 @@ skeleton = NodePath("")
 [node name="Wheel R5" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.4341, -0.824444, 1.20273)
 wheel_radius = 0.6
+wheel_rest_length = 0.0
 wheel_friction_slip = 1.0
 suspension_travel = 1.0
 script = ExtResource("3_1gry0")

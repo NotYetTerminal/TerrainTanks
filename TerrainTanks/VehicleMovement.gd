@@ -2,16 +2,24 @@ extends VehicleBody3D
 
 var engine_force_value: float = 100
 var turning_force_value: float = 50
-@export var left_wheels: Array
-@export var right_wheels: Array
+var left_wheels: Array
+var right_wheels: Array
 
 var previous_angular_velocity: float = 0
 var turn_values: Array = [0.785,0.785,0,-0.785,-0.785]
 var go_and_turn_values: Array = [0.39,0.39,0,-0.39,-0.39]
 
+
 func _ready() -> void:
 	left_wheels = [$"Wheel L1", $"Wheel L2", $"Wheel L3", $"Wheel L4", $"Wheel L5"]
 	right_wheels = [$"Wheel R1", $"Wheel R2", $"Wheel R3", $"Wheel R4", $"Wheel R5"]
+
+
+func _process(_delta) -> void:
+	var pos: Vector3 = position
+	pos.y += 5
+	$SpringArm3D.position = pos
+
 
 func _physics_process(_delta) -> void:
 	var straight: int = 0
@@ -113,16 +121,14 @@ func _physics_process(_delta) -> void:
 
 	# braking
 	if braking:
-		print("brake")
 		for index in range(5):
 			left_wheels[index].engine_force = 0
 			right_wheels[index].engine_force = 0
 			
 			left_wheels[index].brake = 5
 			right_wheels[index].brake = 5
-	# going stright
+	# going straight
 	elif turning == 0 and straight != 0:
-		print("go")
 		var move_value: float = engine_force_value * straight
 		for index in range(5):
 			left_wheels[index].set_new_rotation(0)
@@ -143,7 +149,6 @@ func _physics_process(_delta) -> void:
 			
 	# turning on the spot
 	elif straight == 0 and turning != 0:
-		print("turn")
 		var move_value: float = turning_force_value * turning
 		for index in range(5):
 			left_wheels[index].set_new_rotation(turn_values[4-index])
@@ -157,7 +162,6 @@ func _physics_process(_delta) -> void:
 			
 	# turning and driving
 	elif turning != 0 and straight != 0:
-		print("both")
 		var move_value: float = engine_force_value * straight * 2
 		# changes the turning direction when going backwards
 		var multiplier: int = calculate_direction()
@@ -199,13 +203,30 @@ func _physics_process(_delta) -> void:
 				
 	# passive stopping
 	else:
-		print("nothing")
 		for index in range(5):
 			left_wheels[index].engine_force = 0
 			right_wheels[index].engine_force = 0
 			
+			left_wheels[index].suspension_stiffness = 10
+			right_wheels[index].suspension_stiffness = 10
+			
 			left_wheels[index].brake = 1
 			right_wheels[index].brake = 1
+
+# calculates the rotation and elevation for turret
+func calculate_rotation(looking_position: Vector3) -> void:
+	var rot = atan2(looking_position.z - position.z, looking_position.x - position.z)
+	rot += rotation.y
+	var elevation = atan2(looking_position.y - position.y, looking_position.x - position.z)
+	elevation += rotation.z
+	elevation = clamp(elevation, -0.08726646, 0.2617994)
+	second raycast for actual target
+	set_turret_and_gun(-rot, elevation)
+
+# sets the direction turret and gun should face
+func set_turret_and_gun(rotation_value: float, elevation: float) -> void:
+	$Chassis/Head.set_new_rotation(rotation_value)
+	$Chassis/Head/Gun.set_new_rotation(elevation)
 
 # positive is forward
 # negative is backwards
