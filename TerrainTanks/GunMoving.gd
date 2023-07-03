@@ -38,6 +38,7 @@ func raycast_target() -> void:
 # sets marker location
 func set_marker_location(pos: Vector3) -> void:
 	$"../Marker".global_position = pos
+	print("Marker: ", pos)
 
 # sets a new rotation target
 func set_new_rotation(target: float) -> void:

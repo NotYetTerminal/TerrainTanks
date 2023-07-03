@@ -220,7 +220,7 @@ func calculate_rotation(looking_position: Vector3) -> void:
 	rot += rotation.y
 	var elevation = atan2(looking_position.y - position.y, looking_position.x - position.x)
 	elevation += rotation.z
-	elevation = clamp(elevation, -0.08726646, 0.2617994) # -5, 15
+	#elevation = clamp(elevation, -0.08726646, 0.2617994) # -5, 15
 	set_turret_and_gun(-rot, elevation)
 
 # sets the direction turret and gun should face

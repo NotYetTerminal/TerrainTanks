@@ -70,7 +70,6 @@ shape = SubResource("SphereShape3D_4wtt8")
 
 [node name="Cromwell" parent="." instance=ExtResource("1_dyv6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1028, 0)
-visible = true
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Cromwell"]
 spring_length = 10.0
