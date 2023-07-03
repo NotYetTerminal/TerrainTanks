@@ -17,6 +17,27 @@ func _process(delta) -> void:
 			new_rotation = target_rotation
 			rotated = true
 		rotation.z = new_rotation
+	
+	raycast_target()
+
+const RAY_LENGTH = 100.0
+# raycasts for target marker
+func raycast_target() -> void:
+	var from: Vector3 = global_position
+	var to: Vector3 = from + Vector3(cos(global_rotation.y) * RAY_LENGTH, sin(global_rotation.z) * RAY_LENGTH, -sin(global_rotation.y) * RAY_LENGTH)
+	
+	var space_state = get_world_3d().direct_space_state
+	# use global coordinates, not local to node
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	var result = space_state.intersect_ray(query)
+	if result:
+		set_marker_location(result.position)
+	else:
+		set_marker_location(to)
+
+# sets marker location
+func set_marker_location(pos: Vector3) -> void:
+	$"../Marker".global_position = pos
 
 # sets a new rotation target
 func set_new_rotation(target: float) -> void:

@@ -215,12 +215,12 @@ func _physics_process(_delta) -> void:
 
 # calculates the rotation and elevation for turret
 func calculate_rotation(looking_position: Vector3) -> void:
-	var rot = atan2(looking_position.z - position.z, looking_position.x - position.z)
+	$Chassis/Head.give_marker(looking_position)
+	var rot = atan2(looking_position.z - position.z, looking_position.x - position.x)
 	rot += rotation.y
-	var elevation = atan2(looking_position.y - position.y, looking_position.x - position.z)
+	var elevation = atan2(looking_position.y - position.y, looking_position.x - position.x)
 	elevation += rotation.z
-	elevation = clamp(elevation, -0.08726646, 0.2617994)
-	second raycast for actual target
+	elevation = clamp(elevation, -0.08726646, 0.2617994) # -5, 15
 	set_turret_and_gun(-rot, elevation)
 
 # sets the direction turret and gun should face

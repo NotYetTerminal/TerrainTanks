@@ -6,7 +6,7 @@ func _ready() -> void:
 	# sets rotation indepentdent of parent
 	set_as_top_level(true)
 	# locks mouse
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 # raycasts for turret
 const RAY_LENGTH = 1000.0
@@ -30,7 +30,7 @@ func _unhandled_input(event) -> void:
 	if event is InputEventMouseMotion:
 		rotation_degrees.x -= event.relative.y * mouse_sensitivity
 		rotation_degrees.x = clamp(rotation_degrees.x, -90, 30)
-		
+
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		rotation_degrees.y = wrapf(rotation_degrees.y, 0, 360)
 
