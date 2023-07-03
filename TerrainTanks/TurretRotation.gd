@@ -9,12 +9,40 @@ var rotated_amount: float = 0
 
 var target_position: Vector2 = Vector2.ZERO
 
+var angle_y: float = 0
+var turn_rate: float = 0
+var target_turn_rate: float = 0
+var previous_turn_rate: float = 0
+
 # rotates the turret and gun
 func _process(delta) -> void:
-	print(global_position)
-	var angle_to_player = Vector2(global_position.x, global_position.z).direction_to(target_position).angle()
-	print(angle_to_player)
-	rotation.y = move_toward(rotation.y, angle_to_player, delta)
+	angle_y = global_rotation.y
+#	print(global_position)
+#	var angle_to_player = Vector2(global_position.x, global_position.z).direction_to(target_position).angle()
+#	print(angle_to_player)
+#	rotation.y = move_toward(rotation.y, angle_to_player, delta)
+	print("new")
+
+	# get target position
+	# get rotation to target
+	var target_angle = Vector2.RIGHT.angle_to(target_position)
+	# get delta angle between rotation and rotation to target
+	target_angle = target_angle - angle_y
+	target_angle = fposmod(target_angle + PI, PI * 2) - PI
+	print(target_angle)
+
+	var sign = sign(target_angle)
+	target_angle = abs(target_angle)
+	# lerp from 0 to 1 according to speed and angle
+	target_turn_rate = lerp(0.0, 1.0, target_angle / (rotation_speed * delta)) * sign
+
+	# adjust turn rate according to delta
+	turn_rate = move_toward(turn_rate, target_turn_rate, delta)
+	
+	# change y rotation
+	#angle_y += rotation_speed * turn_rate * delta
+	#rotation.y = angle_y
+	
 #	if rotated_amount < difference_rotation:
 #		var rotate_value: float = (rotation_speed * rotation_direction * delta)
 #		rotated_amount += rotate_value

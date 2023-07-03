@@ -492,7 +492,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ovtnc")
 
 [node name="Cromwell" type="VehicleBody3D"]
-visible = false
 mass = 100.0
 script = ExtResource("1_fm5ef")
 
