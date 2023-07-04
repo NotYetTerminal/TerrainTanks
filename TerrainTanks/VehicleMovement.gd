@@ -216,17 +216,17 @@ func _physics_process(_delta) -> void:
 # calculates the rotation and elevation for turret
 func calculate_rotation(looking_position: Vector3) -> void:
 	$Chassis/Head.give_marker(looking_position)
-	var rot = atan2(looking_position.z - position.z, looking_position.x - position.x)
-	rot += rotation.y
-	var elevation = atan2(looking_position.y - position.y, looking_position.x - position.x)
-	elevation += rotation.z
-	#elevation = clamp(elevation, -0.08726646, 0.2617994) # -5, 15
-	set_turret_and_gun(-rot, elevation)
+	$Chassis/Head/Gun.give_marker(looking_position)
+#	var rot = atan2(looking_position.z - position.z, looking_position.x - position.x)
+#	rot += rotation.y
+#	var elevation = atan2(looking_position.y - position.y, looking_position.x - position.x)
+#	elevation += rotation.z
+#	#elevation = clamp(elevation, -0.08726646, 0.2617994) # -5, 15
+#	set_turret_and_gun(-rot, elevation)
 
 # sets the direction turret and gun should face
-func set_turret_and_gun(rotation_value: float, elevation: float) -> void:
-	$Chassis/Head.set_new_rotation(rotation_value)
-	$Chassis/Head/Gun.set_new_rotation(elevation)
+#func set_turret_and_gun(rotation_value: float, elevation: float) -> void:
+#	$Chassis/Head/Gun.set_new_rotation(elevation)
 
 # positive is forward
 # negative is backwards
