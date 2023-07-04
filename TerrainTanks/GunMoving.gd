@@ -9,26 +9,15 @@ var target_position: Vector3 = Vector3.ZERO
 
 # rotates the turret and gun
 func _process(delta) -> void:
-	print("new")
 	# get angle to rotate according to global values
-	print(target_position)
-	print(global_position)
-	print(global_rotation)
-	var direction = target_position - global_position
-	print(direction)
-	var angle_to: float = global_transform.basis.y.signed_angle_to(direction, Vector3.FORWARD)
-	print(angle_to)
-	angle_to = global_transform.basis.y.signed_angle_to(direction, Vector3.BACK)
-	print(angle_to)
-	angle_to = global_transform.basis.y.signed_angle_to(direction, Vector3.LEFT)
-	print(angle_to)
-	angle_to = global_transform.basis.y.signed_angle_to(direction, Vector3.RIGHT)
-	print(angle_to)
-	angle_to = global_transform.basis.y.signed_angle_to(direction, Vector3.UP)
-	print(angle_to)
-	angle_to = global_transform.basis.y.signed_angle_to(direction, Vector3.DOWN)
-	print(angle_to)
+	var distance: float = Vector2(global_position.x, global_position.z).distance_to(Vector2(target_position.x, target_position.z))
+	var direction = Vector3(distance, target_position.y - global_position.y, 0)
+	var angle_to: float = transform.basis.x.signed_angle_to(direction, Vector3.FORWARD)
 	#rotate(Vector3.FORWARD, sign(angle_to) * min(delta * rotation_speed, abs(angle_to)))
+	if Input.is_action_pressed("turret_up"):
+		rotation.z += delta * rotation_speed
+	if Input.is_action_pressed("turret_down"):
+		rotation.z -= delta * rotation_speed
 
 # rotates the turret and gun
 #func _process(delta) -> void:
@@ -49,7 +38,12 @@ const RAY_LENGTH = 100.0
 # raycasts for target marker
 func raycast_target() -> void:
 	var from: Vector3 = global_position
-	var to: Vector3 = from + Vector3(cos(global_rotation.y) * RAY_LENGTH, sin(global_rotation.z) * RAY_LENGTH, -sin(global_rotation.y) * RAY_LENGTH)
+	print(global_rotation.x)
+	var to: Vector3 = from + Vector3(cos(global_rotation.z) * cos(global_rotation.y) * RAY_LENGTH,
+									sin(global_rotation.z) * RAY_LENGTH,
+									cos(global_rotation.x) * -sin(global_rotation.y) * RAY_LENGTH)
+	
+	#var to: Vector3 = from + Vector3(cos(global_rotation.y) * RAY_LENGTH, sin(global_rotation.z) * RAY_LENGTH, -sin(global_rotation.y) * RAY_LENGTH)
 	
 	var space_state = get_world_3d().direct_space_state
 	# use global coordinates, not local to node
@@ -61,8 +55,7 @@ func raycast_target() -> void:
 		set_marker_location(to)
 
 func give_marker(position_value: Vector3) -> void:
-	print(position_value)
-	target_position = Vector3(position_value.x, position_value.y, global_position.z)
+	target_position = position_value
 
 # sets marker location
 func set_marker_location(pos: Vector3) -> void:
